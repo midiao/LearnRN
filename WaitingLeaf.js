@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
     StyleSheet, Text, View
 } from 'react-native';
-export default class WaitingLeaf extends Component {
+import PropTypes from 'prop-types';
+export default class WaitingLeaf extends Component{
     constructor(props) {
         super(props);
     }
@@ -12,8 +13,11 @@ export default class WaitingLeaf extends Component {
                 <Text style={styles.textPrompStyle}>
                     登录使用手机号:{this.props.phoneNumber}
                 </Text>
+                <Text style={styles.textPrompStyle}>
+                    登录使用密码:{this.props.userPW}
+                </Text>
                 <Text style={styles.bigTextPrompt} onPress={() => this.onGobackPressed()}>
-                    返回
+                    返 回
                 </Text>
             </View>
         )
@@ -40,3 +44,7 @@ let styles = StyleSheet.create({
         fontSize: 60
     }
 })
+WaitingLeaf.propTypes = {
+    phoneNumber: PropTypes.string,
+    userPW: PropTypes.string
+}

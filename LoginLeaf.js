@@ -1,8 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
-
 import React, { Component } from 'react';
 import {
   Platform,
@@ -10,7 +5,8 @@ import {
   Text,
   View,
   Dimensions,
-  TextInput
+  TextInput,
+  Alert
 } from 'react-native';
 let widthOfMargin = Dimensions.get('window').width * 0.05;
 const instructions = Platform.select({
@@ -21,7 +17,8 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class LoginLeaf extends Component<Props> {
+export default class LoginLeaf extends Component {
+  static defaultProps: Props;
   constructor(props) {
     super(props);
     this.state = {
@@ -61,16 +58,26 @@ export default class LoginLeaf extends Component<Props> {
           secureTextEntry={true}
           onChangeText={this.updatePW}/>
         <Text style={styles.bigTextPrompt} onPress={() => this.userPressConfirm()}>
-          确定
+            确 定
         </Text>
         <Text style={styles.bigTextPrompt} onPress={() => this.userPressAddressBook()}>
-            通讯录
+            通 讯 录
         </Text>
       </View>
     );
   }
   userPressConfirm() {
       this.props.onLoginPressed(this.state.inputedNum, this.state.inputedPW);
+      // Alert.alert(
+      //     '弹出框标题提示语',
+      //     '弹出框正文提示语',
+      //     [
+      //         {text: '我知道了', onPress: this.option1Selected}
+      //     ]
+      // );
+  }
+  option1Selected() {
+      console.log('option1Selected')
   }
   userPressAddressBook() {
 

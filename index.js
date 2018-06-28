@@ -3,7 +3,7 @@ import {
     AppRegistry, BackHandler, Platform
 } from 'react-native';
 import LoginLeaf from './LoginLeaf';
-// import WaitingLeaf from './WaitingLeaf';
+import WaitingLeaf from './WaitingLeaf';
 export default class NaviModule extends Component {
     constructor(props) {
         super(props);

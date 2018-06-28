@@ -60,11 +60,20 @@ export default class LoginLeaf extends Component<Props> {
           placeholder={'请输入密码'}
           secureTextEntry={true}
           onChangeText={this.updatePW}/>
-        <Text style={styles.bigTextPrompt}>
+        <Text style={styles.bigTextPrompt} onPress={() => this.userPressConfirm()}>
           确定
+        </Text>
+        <Text style={styles.bigTextPrompt} onPress={() => this.userPressAddressBook()}>
+            通讯录
         </Text>
       </View>
     );
+  }
+  userPressConfirm() {
+      this.props.onLoginPressed(this.state.inputedNum, this.state.inputedPW);
+  }
+  userPressAddressBook() {
+
   }
 }
 
